@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaDi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="./readabler/css/readabler.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <span>HaDi</span>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="main-container">
+
+        <!-- CONTENEDOR DE JUEGOS -->
+        <div id="game-syllable-catch" class="game-container">
+            <!-- Juego 1: Atrapa la Sílaba -->
+            <div class="game-header">
+                <h2 class="game-title"><i class="fa-solid fa-crosshairs"></i> Atrapa la sílaba</h2>
+                <div class="game-stats">
+                    <div class="stat" id="score-syllable">Puntos: 0</div>
+                    <div class="stat" id="time-syllable">Tiempo: 60s</div>
+                </div>
+            </div>
+            <div class="game-content">
+                <div class="target-word" id="target-syllable">bra</div>
+                <div class="syllable-container" id="syllable-options"></div>
+                <div class="feedback" id="feedback-syllable"></div>
+                <button class="btn btn-primary" id="start-syllable">Comenzar juego</button>
+            </div>
+        </div>
+
+        <div id="game-word-builder" class="game-container">
+            <!-- Juego 2: Construye la Palabra -->
+            <div class="game-header">
+                <h2 class="game-title"><i class="fa-solid fa-puzzle-piece"></i> Construye la palabra</h2>
+                <div class="game-stats">
+                    <div class="stat" id="score-word">Puntos: 0</div>
+                    <div class="stat" id="attempts-word">Intentos: 0</div>
+                </div>
+            </div>
+            <div class="game-content">
+                <div class="target-word" id="target-word">caballo</div>
+                <div class="word-construction" id="word-slots"></div>
+                <div class="syllable-container" id="word-pieces"></div>
+                <div class="feedback" id="feedback-word"></div>
+                <button class="btn btn-primary" id="check-word">Comprobar</button>
+                <button class="btn btn-success" id="next-word">Siguiente palabra</button>
+            </div>
+        </div>
+
+        <div id="game-real-word" class="game-container">
+            <!-- Juego 3: ¿Cuál es la palabra real? -->
+            <div class="game-header">
+                <h2 class="game-title"><i class="fa-solid fa-magnifying-glass"></i> ¿Cuál es la palabra real?</h2>
+                <div class="game-stats">
+                    <div class="stat" id="score-real-word">Puntos: 0</div>
+                    <div class="stat" id="level-real-word">Nivel: 1</div>
+                </div>
+            </div>
+            <div class="game-content">
+                <div class="target-word" id="instruction-real-word">Selecciona la palabra real</div>
+                <div class="word-options" id="real-word-options"></div>
+                <div class="feedback" id="feedback-real-word"></div>
+                <button class="btn btn-success" id="next-real-word">Siguiente</button>
+            </div>
+        </div>
+
+        <!-- MENÚ DE JUEGOS -->
+        <div class="games-menu">
+            <div class="game-card game-card-1" onclick="showGame('syllable-catch')">
+                <div class="game-card-header">
+                    <i class="fa-solid fa-crosshairs"></i>
+                </div>
+                <div class="game-card-content">
+                    <h3 class="game-card-title">Atrapa la sílaba</h3>
+                    <p class="game-card-description">Elige la sílaba correcta lo más rápido posible. ¡Entrena tus
+                        reflejos y puntería!</p>
+                </div>
+            </div>
+
+            <div class="game-card game-card-2" onclick="showGame('word-builder')">
+                <div class="game-card-header">
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                </div>
+                <div class="game-card-content">
+                    <h3 class="game-card-title">Construye la palabra</h3>
+                    <p class="game-card-description">Arma palabras correctamente usando sílabas como piezas de LEGO.</p>
+                </div>
+            </div>
+
+            <div class="game-card game-card-3" onclick="showGame('real-word')">
+                <div class="game-card-header">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="game-card-content">
+                    <h3 class="game-card-title">¿Cuál es la palabra real?</h3>
+                    <p class="game-card-description">Identifica la palabra real entre opciones similares.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="./readabler/js/readabler.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const options = {
+                // path: './readabler', // Solo descomenta si usas una ruta diferente
+            }
+            const style = {
+                // '--readabler-bg': '#ffffff' // Personaliza colores si lo deseas
+            }
+            const readabler = new Readabler(options, style);
+        });
+    </script>
+</body>
+
+</html>
